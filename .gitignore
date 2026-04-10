@@ -1,5 +1,4 @@
 node_modules
 build
 dist
-.envgit add .
-git commit -m "fix: remove node_modules from repo"
+.env
