@@ -1,7 +1,21 @@
 import { motion } from 'motion/react';
 import { Briefcase, GraduationCap, Award, Download, Mail, Linkedin, MapPin, Globe } from 'lucide-react';
+import cvPdf from '../assets/CV Dewa Putu Brian Arta Winata.pdf';
 
 const academicProjects = [
+  {
+    title: 'Home Cleaning Service - Mobile App',
+    type: 'Full-Stack Development Project',
+    period: 'May 2026 - Present',
+    description: 'Platform mobile untuk memesan jasa pembersihan rumah dengan fitur transparansi harga dan penjadwalan real-time. Built with Flutter (frontend) and Golang (backend).',
+    achievements: [
+      'Developed Price Transparency Calculator with real-time cost breakdown',
+      'Built Real-time Schedule Picker for flexible cleaner booking',
+      'Achieved 100% success rate in Black-Box Testing for core features',
+      'Designed intuitive and transparent UI validated by internal respondents'
+    ],
+    tools: ['Flutter', 'Dart', 'Golang', 'REST API', 'Figma']
+  },
   {
     title: 'EatSmart - Smart Food Catering Application',
     type: 'UI/UX Design Competition Project',
@@ -40,123 +54,85 @@ const education = [
 ];
 
 const skills = [
-  { 
-    category: 'Design Tools', 
-    items: ['Figma', 'Sketch', 'Adobe Photoshop', 'Adobe Illustrator', 'Canva', 'Affinity'] 
-  },
-  { 
-    category: 'UX/UI Skills', 
-    items: ['Wireframing', 'Prototyping', 'User Research', 'Usability Testing', 'User Personas', 'Journey Mapping', 'Information Architecture'] 
-  },
-  { 
-    category: 'Technical Skills', 
-    items: ['HTML', 'CSS', 'JavaScript Basics', 'Responsive Design', 'Accessibility Standards (WCAG)'] 
-  },
-  { 
-    category: 'Soft Skills', 
-    items: ['Communication', 'Collaboration', 'Problem Solving', 'Time Management', 'Attention to Detail'] 
-  }
+  { category: 'Design Tools', items: ['Figma', 'Sketch', 'Adobe Photoshop', 'Adobe Illustrator', 'Canva', 'Affinity'] },
+  { category: 'UX/UI Skills', items: ['Wireframing', 'Prototyping', 'User Research', 'Usability Testing', 'User Personas', 'Journey Mapping', 'Information Architecture'] },
+  { category: 'Technical Skills', items: ['Flutter', 'Dart', 'Golang', 'REST API', 'HTML', 'CSS', 'JavaScript', 'Responsive Design', 'Accessibility Standards (WCAG)'] },
+  { category: 'Soft Skills', items: ['Communication', 'Collaboration', 'Problem Solving', 'Time Management', 'Attention to Detail'] }
 ];
 
 export function CVSection() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="text-center mb-12"
-      >
-        <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
-          Curriculum Vitae
+      <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }} className="text-center mb-12">
+        <h2 className="text-4xl sm:text-5xl font-bold mb-4 font-grotesk" style={{ color: '#1A1A2E' }}>
+          Curriculum <span style={{ color: '#FF6B35' }}>Vitae</span>
         </h2>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-6">
-          My professional journey and qualifications
-        </p>
-        <button className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-          <Download size={20} />
-          Download CV (PDF)
-        </button>
+        <p className="text-xl max-w-2xl mx-auto mb-6 font-grotesk" style={{ color: '#5A6B7A' }}>My professional journey and qualifications</p>
+        <a
+          href={cvPdf}
+          download="CV Dewa Putu Brian Arta Winata.pdf"
+          className="inline-flex items-center gap-2 px-6 py-3 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 font-grotesk cursor-pointer"
+          style={{ backgroundColor: '#FF6B35' }}
+          onMouseEnter={e => e.currentTarget.style.backgroundColor = '#E85D2C'}
+          onMouseLeave={e => e.currentTarget.style.backgroundColor = '#FF6B35'}
+        >
+          <Download size={20} /> Download CV (PDF)
+        </a>
       </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-        {/* Contact Info Card */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="bg-white rounded-2xl shadow-lg p-6 lg:col-span-1"
-        >
-          <h3 className="text-xl font-bold mb-4">Contact Information</h3>
+        {/* Contact Info */}
+        <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
+          className="bg-white rounded-2xl shadow-lg p-6 lg:col-span-1" style={{ border: '1px solid rgba(181,216,240,0.3)' }}>
+          <h3 className="text-xl font-bold mb-4 font-grotesk" style={{ color: '#1A1A2E' }}>Contact Information</h3>
           <div className="space-y-3">
-            <div className="flex items-center gap-3 text-gray-700">
-              <Mail size={20} className="text-purple-600" />
-              <span className="text-sm">brian.arta@students.undiksha.ac.id</span>
-            </div>
-            <div className="flex items-center gap-3 text-gray-700">
-              <Linkedin size={20} className="text-purple-600" />
-              <span className="text-sm">linkedin.com/in/brianarta</span>
-            </div>
-            <div className="flex items-center gap-3 text-gray-700">
-              <MapPin size={20} className="text-purple-600" />
-              <span className="text-sm">Penarukan, Buleleng, Bali</span>
-            </div>
-            <div className="flex items-center gap-3 text-gray-700">
-              <Globe size={20} className="text-purple-600" />
-              <span className="text-sm">portfoliobrian.com</span>
-            </div>
+            {[
+              { icon: <Mail size={20} />, text: 'brian.arta@students.undiksha.ac.id' },
+              { icon: <Linkedin size={20} />, text: 'linkedin.com/in/brianarta' },
+              { icon: <MapPin size={20} />, text: 'Penarukan, Buleleng, Bali' },
+              { icon: <Globe size={20} />, text: 'portfoliobrian.com' },
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-3" style={{ color: '#5A6B7A' }}>
+                <span style={{ color: '#3B9FD9' }}>{item.icon}</span>
+                <span className="text-sm">{item.text}</span>
+              </div>
+            ))}
           </div>
-
-          <div className="mt-6 pt-6 border-t border-gray-200">
-            <h4 className="font-bold mb-3">Professional Summary</h4>
-            <p className="text-gray-600 text-sm">
-              Information Systems student (semester 8) focused on creating creative, user-centered digital solutions. Experienced in User-Centered Design (UCD), Design Thinking, Design Sprint, rapid prototyping, and sketching. Proactive problem-solver who leverages experience and relevant technology to create solutions. Current mission is to continue exploring the UX/UI field focused on solving real problems quickly. Collaborative, communicative, and contributes to enjoyable team dynamics.
+          <div className="mt-6 pt-6" style={{ borderTop: '1px solid #B5D8F0' }}>
+            <h4 className="font-bold mb-3 font-grotesk" style={{ color: '#1A1A2E' }}>Professional Summary</h4>
+            <p className="text-sm" style={{ color: '#5A6B7A' }}>
+              Information Systems student (semester 6) focused on creating creative, user-centered digital solutions. Experienced in User-Centered Design (UCD), Design Thinking, Design Sprint, rapid prototyping, and sketching. Proactive problem-solver who leverages experience and relevant technology to create solutions. Current mission is to continue exploring the UX/UI field focused on solving real problems quickly. Collaborative, communicative, and contributes to enjoyable team dynamics.
             </p>
           </div>
         </motion.div>
 
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-8">
-          {/* Academic Projects */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-2xl shadow-lg p-6"
-          >
+          {/* Projects */}
+          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} viewport={{ once: true }}
+            className="bg-white rounded-2xl shadow-lg p-6" style={{ border: '1px solid rgba(181,216,240,0.3)' }}>
             <div className="flex items-center gap-3 mb-6">
-              <Briefcase className="text-purple-600" size={28} />
-              <h3 className="text-2xl font-bold">Academic & Personal Projects</h3>
+              <Briefcase size={28} style={{ color: '#FF6B35' }} />
+              <h3 className="text-2xl font-bold font-grotesk" style={{ color: '#1A1A2E' }}>Academic & Personal Projects</h3>
             </div>
             <div className="space-y-6">
               {academicProjects.map((project, index) => (
-                <div key={index} className="border-l-4 border-purple-600 pl-4">
-                  <h4 className="text-xl font-bold">{project.title}</h4>
-                  <div className="flex flex-wrap gap-2 text-gray-600 mb-2">
-                    <span className="font-medium">{project.type}</span>
-                    <span>•</span>
-                    <span>{project.period}</span>
+                <div key={index} className="pl-4" style={{ borderLeft: '4px solid #FF6B35' }}>
+                  <h4 className="text-xl font-bold font-grotesk" style={{ color: '#1A1A2E' }}>{project.title}</h4>
+                  <div className="flex flex-wrap gap-2 mb-2" style={{ color: '#5A6B7A' }}>
+                    <span className="font-medium">{project.type}</span><span>•</span><span>{project.period}</span>
                   </div>
-                  <p className="text-gray-700 mb-3">{project.description}</p>
+                  <p className="mb-3" style={{ color: '#1A1A2E' }}>{project.description}</p>
                   <ul className="space-y-1 mb-3">
-                    {project.achievements.map((achievement, i) => (
-                      <li key={i} className="text-sm text-gray-600 flex items-start">
-                        <span className="text-purple-600 mr-2">▹</span>
-                        {achievement}
+                    {project.achievements.map((a, i) => (
+                      <li key={i} className="text-sm flex items-start" style={{ color: '#5A6B7A' }}>
+                        <span className="mr-2" style={{ color: '#FF6B35' }}>▹</span>{a}
                       </li>
                     ))}
                   </ul>
                   <div className="flex flex-wrap gap-2">
                     {project.tools.map((tool, i) => (
-                      <span
-                        key={i}
-                        className="px-2 py-1 bg-purple-50 rounded text-xs font-medium text-purple-700"
-                      >
-                        {tool}
-                      </span>
+                      <span key={i} className="px-2 py-1 bg-sky-light rounded text-xs font-medium" style={{ color: '#3B9FD9' }}>{tool}</span>
                     ))}
                   </div>
                 </div>
@@ -165,54 +141,37 @@ export function CVSection() {
           </motion.div>
 
           {/* Education */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-2xl shadow-lg p-6"
-          >
+          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.2 }} viewport={{ once: true }}
+            className="bg-white rounded-2xl shadow-lg p-6" style={{ border: '1px solid rgba(181,216,240,0.3)' }}>
             <div className="flex items-center gap-3 mb-6">
-              <GraduationCap className="text-blue-600" size={28} />
-              <h3 className="text-2xl font-bold">Education</h3>
+              <GraduationCap size={28} style={{ color: '#3B9FD9' }} />
+              <h3 className="text-2xl font-bold font-grotesk" style={{ color: '#1A1A2E' }}>Education</h3>
             </div>
-            <div className="space-y-6">
-              {education.map((edu, index) => (
-                <div key={index} className="border-l-4 border-blue-600 pl-4">
-                  <h4 className="text-xl font-bold">{edu.degree}</h4>
-                  <div className="flex flex-wrap gap-2 text-gray-600 mb-2">
-                    <span className="font-medium">{edu.school}</span>
-                    <span>•</span>
-                    <span>{edu.period}</span>
-                  </div>
-                  <p className="text-gray-700">{edu.details}</p>
+            {education.map((edu, index) => (
+              <div key={index} className="pl-4" style={{ borderLeft: '4px solid #3B9FD9' }}>
+                <h4 className="text-xl font-bold font-grotesk" style={{ color: '#1A1A2E' }}>{edu.degree}</h4>
+                <div className="flex flex-wrap gap-2 mb-2" style={{ color: '#5A6B7A' }}>
+                  <span className="font-medium">{edu.school}</span><span>•</span><span>{edu.period}</span>
                 </div>
-              ))}
-            </div>
+                <p style={{ color: '#1A1A2E' }}>{edu.details}</p>
+              </div>
+            ))}
           </motion.div>
 
           {/* Skills */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-2xl shadow-lg p-6"
-          >
+          <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} transition={{ duration: 0.6, delay: 0.4 }} viewport={{ once: true }}
+            className="bg-white rounded-2xl shadow-lg p-6" style={{ border: '1px solid rgba(181,216,240,0.3)' }}>
             <div className="flex items-center gap-3 mb-6">
-              <Award className="text-purple-600" size={28} />
-              <h3 className="text-2xl font-bold">Skills & Expertise</h3>
+              <Award size={28} style={{ color: '#FF6B35' }} />
+              <h3 className="text-2xl font-bold font-grotesk" style={{ color: '#1A1A2E' }}>Skills & Expertise</h3>
             </div>
             <div className="space-y-4">
-              {skills.map((skillGroup, index) => (
+              {skills.map((sg, index) => (
                 <div key={index}>
-                  <h4 className="font-bold mb-2 text-purple-600">{skillGroup.category}</h4>
+                  <h4 className="font-bold mb-2 font-grotesk" style={{ color: '#3B9FD9' }}>{sg.category}</h4>
                   <div className="flex flex-wrap gap-2">
-                    {skillGroup.items.map((skill, i) => (
-                      <span
-                        key={i}
-                        className="px-3 py-1 bg-gradient-to-r from-purple-50 to-blue-50 rounded-full text-sm font-medium text-gray-700"
-                      >
+                    {sg.items.map((skill, i) => (
+                      <span key={i} className="px-3 py-1 bg-sky-gradient-br rounded-full text-sm font-medium" style={{ color: '#1A1A2E', border: '1px solid rgba(181,216,240,0.5)' }}>
                         {skill}
                       </span>
                     ))}

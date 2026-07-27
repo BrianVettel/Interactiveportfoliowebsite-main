@@ -22,6 +22,8 @@
         'figma:asset/4b67ed0e4e36c2aa71b64577823fcb985f661964.png': path.resolve(__dirname, './src/assets/4b67ed0e4e36c2aa71b64577823fcb985f661964.png'),
         'figma:asset/3becc9d88b20577e2c72dd22e0a988f2da56b6ca.png': path.resolve(__dirname, './src/assets/3becc9d88b20577e2c72dd22e0a988f2da56b6ca.png'),
         'figma:asset/316671cb4389439c3031ac18b0eaa6561214d1b9.png': path.resolve(__dirname, './src/assets/316671cb4389439c3031ac18b0eaa6561214d1b9.png'),
+        'figma:asset/HomeCleaningService_Main.png': path.resolve(__dirname, './src/assets/HomeCleaningService_Main.png'),
+        'figma:asset/HomeCleaningService_Choosecleaner.png': path.resolve(__dirname, './src/assets/HomeCleaningService_Choosecleaner.png'),
         'figma:asset/1bcdb8a63688130aade39247fdcfb2983324891d.png': path.resolve(__dirname, './src/assets/1bcdb8a63688130aade39247fdcfb2983324891d.png'),
         'embla-carousel-react@8.6.0': 'embla-carousel-react',
         'cmdk@1.1.1': 'cmdk',

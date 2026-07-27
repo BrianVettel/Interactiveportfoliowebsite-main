@@ -13,8 +13,6 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
-      // Update active section based on scroll position
       const sections = ['home', 'projects', 'cv', 'certifications', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -27,7 +25,6 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
         }
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [setActiveSection]);
@@ -42,7 +39,7 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
 
   const navItems = [
     { id: 'home', label: 'Home' },
-    { id: 'projects', label: 'UX Projects' },
+    { id: 'projects', label: 'Projects' },
     { id: 'cv', label: 'CV' },
     { id: 'certifications', label: 'Certifications' },
     { id: 'contact', label: 'Contact' },
@@ -56,34 +53,59 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20">
-          <button
-            onClick={() => scrollToSection('home')}
-            className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent hover:scale-105 transition-transform"
-          >
-            Brian Arta
+          {/* Left: Available badge */}
+          <button onClick={() => scrollToSection('home')} className="flex items-center gap-2 group">
+            <span
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-1 rounded-full text-sm font-medium transition-all duration-300 font-grotesk"
+              style={{ border: '2px solid #1A1A2E', color: '#1A1A2E' }}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#1A1A2E'; e.currentTarget.style.color = '#fff'; }}
+              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#1A1A2E'; }}
+            >
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{ display: 'inline-block' }}></span>
+              available for projects
+            </span>
+            <span className="sm:hidden text-xl font-bold font-grotesk" style={{ color: '#1A1A2E' }}>BA</span>
           </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-1 lg:space-x-2">
+          {/* Center: Desktop Navigation Pill */}
+          <div
+            className="hidden md:flex items-center rounded-full shadow-md px-2 py-1"
+            style={{ backgroundColor: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(8px)', border: '1px solid #B5D8F0' }}
+          >
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`px-3 lg:px-4 py-2 rounded-lg transition-all duration-200 ${
-                  activeSection === item.id
-                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg'
-                    : 'text-gray-700 hover:bg-gray-100'
-                }`}
+                className="px-4 lg:px-5 py-2 rounded-full transition-all duration-200 text-sm font-medium font-grotesk"
+                style={{
+                  backgroundColor: activeSection === item.id ? '#1A1A2E' : 'transparent',
+                  color: activeSection === item.id ? '#ffffff' : '#1A1A2E',
+                  boxShadow: activeSection === item.id ? '0 4px 6px -1px rgba(0,0,0,0.1)' : 'none'
+                }}
               >
                 {item.label}
               </button>
             ))}
           </div>
 
+          {/* Right: Contact email */}
+          <div className="hidden md:flex items-center">
+            <a
+              href="mailto:brian.arta@student.undiksha.ac.id"
+              className="flex items-center gap-2 px-4 py-1 rounded-full text-sm font-medium transition-all duration-300 font-grotesk"
+              style={{ border: '2px solid #1A1A2E', color: '#1A1A2E' }}
+              onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#1A1A2E'; e.currentTarget.style.color = '#fff'; }}
+              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#1A1A2E'; }}
+            >
+              ✉ brian.arta@student.undiksha.ac.id
+            </a>
+          </div>
+
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            className="md:hidden p-2 rounded-full transition-colors"
+            style={{ border: '2px solid #1A1A2E' }}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -91,16 +113,19 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 space-y-2">
+          <div
+            className="md:hidden py-4 space-y-2 rounded-2xl px-4 mb-4 shadow-lg"
+            style={{ backgroundColor: 'rgba(255,255,255,0.9)', backdropFilter: 'blur(12px)', border: '1px solid #B5D8F0' }}
+          >
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-200 ${
-                  activeSection === item.id
-                    ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-lg'
-                    : 'text-gray-700 hover:bg-gray-100'
-                }`}
+                className="w-full text-left px-4 py-3 rounded-xl transition-all duration-200 font-grotesk"
+                style={{
+                  backgroundColor: activeSection === item.id ? '#1A1A2E' : 'transparent',
+                  color: activeSection === item.id ? '#ffffff' : '#1A1A2E',
+                }}
               >
                 {item.label}
               </button>

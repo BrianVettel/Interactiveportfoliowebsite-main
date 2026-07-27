@@ -10,7 +10,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState('home');
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="min-h-screen" style={{ background: 'linear-gradient(to bottom, #E8F4FD, #F0F7FC)' }}>
       <Navigation activeSection={activeSection} setActiveSection={setActiveSection} />
       
       <main>
