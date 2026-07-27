@@ -53,18 +53,11 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 sm:h-20">
-          {/* Left: Available badge */}
+          {/* Left: Brand Name */}
           <button onClick={() => scrollToSection('home')} className="flex items-center gap-2 group">
-            <span
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-1 rounded-full text-sm font-medium transition-all duration-300 font-grotesk"
-              style={{ border: '2px solid #1A1A2E', color: '#1A1A2E' }}
-              onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#1A1A2E'; e.currentTarget.style.color = '#fff'; }}
-              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#1A1A2E'; }}
-            >
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{ display: 'inline-block' }}></span>
-              available for projects
+            <span className="text-xl font-bold font-grotesk tracking-tight" style={{ color: '#1A1A2E' }}>
+              Brian Arta
             </span>
-            <span className="sm:hidden text-xl font-bold font-grotesk" style={{ color: '#1A1A2E' }}>BA</span>
           </button>
 
           {/* Center: Desktop Navigation Pill */}
@@ -88,17 +81,15 @@ export function Navigation({ activeSection, setActiveSection }: NavigationProps)
             ))}
           </div>
 
-          {/* Right: Contact email */}
+          {/* Right: Available badge */}
           <div className="hidden md:flex items-center">
-            <a
-              href="mailto:brian.arta@student.undiksha.ac.id"
-              className="flex items-center gap-2 px-4 py-1 rounded-full text-sm font-medium transition-all duration-300 font-grotesk"
+            <span
+              className="inline-flex items-center gap-2 px-4 py-1 rounded-full text-sm font-medium transition-all duration-300 font-grotesk"
               style={{ border: '2px solid #1A1A2E', color: '#1A1A2E' }}
-              onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#1A1A2E'; e.currentTarget.style.color = '#fff'; }}
-              onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#1A1A2E'; }}
             >
-              ✉ brian.arta@student.undiksha.ac.id
-            </a>
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" style={{ display: 'inline-block' }}></span>
+              available for projects
+            </span>
           </div>
 
           {/* Mobile Menu Button */}
