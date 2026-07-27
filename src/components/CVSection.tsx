@@ -45,11 +45,11 @@ const academicProjects = [
 
 const education = [
   {
-    degree: 'Sarjana [Sistem Informasi]',
+    degree: 'S1 Sistem Informasi',
     school: 'Universitas Pendidikan Ganesha',
-    period: 'Currently enrolled, Semester 6',
-    gpa: 'IPK: 3.73',
-    details: 'Relevant Coursework: User Experience Design, Web Programming, Software Engineering'
+    period: 'Semester 6',
+    gpa: 'IPK: 3.79 / 4.00',
+    details: 'Mata Kuliah Relevan: Pemrograman Web, Basis Data, Rekayasa Perangkat Lunak, Pemrograman Mobile, Jaringan Komputer, Pemrograman Berorientasi Objek'
   }
 ];
 
@@ -150,10 +150,11 @@ export function CVSection() {
             {education.map((edu, index) => (
               <div key={index} className="pl-4" style={{ borderLeft: '4px solid #3B9FD9' }}>
                 <h4 className="text-xl font-bold font-grotesk" style={{ color: '#1A1A2E' }}>{edu.degree}</h4>
-                <div className="flex flex-wrap gap-2 mb-2" style={{ color: '#5A6B7A' }}>
-                  <span className="font-medium">{edu.school}</span><span>•</span><span>{edu.period}</span>
+                <div className="text-base font-semibold font-grotesk mt-0.5" style={{ color: '#3B9FD9' }}>{edu.school}</div>
+                <div className="flex flex-wrap gap-2 my-1 text-sm font-medium" style={{ color: '#5A6B7A' }}>
+                  <span>{edu.period}</span><span>•</span><span>{edu.gpa}</span>
                 </div>
-                <p style={{ color: '#1A1A2E' }}>{edu.details}</p>
+                <p className="text-sm mt-2" style={{ color: '#1A1A2E' }}>{edu.details}</p>
               </div>
             ))}
           </motion.div>
